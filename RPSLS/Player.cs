@@ -8,10 +8,17 @@ namespace RPSLS
 {
     public abstract class Player
     {
+        public string currentGesture;
+        public bool isHuman;
+        public int score;
+
+
 
         public Player()
         {
-            string currentHand;
+            string currentGesture;
+            bool isHuman;
+            int score;
         }
 
         public string PlayHand()
@@ -31,14 +38,19 @@ namespace RPSLS
             switch (randomInt)
             {
                 case 0:
+                    Console.WriteLine("Computer chose rock.");
                     return "rock";
                 case 1:
+                    Console.WriteLine("Computer chose paper.");
                     return "paper";
                 case 2:
+                    Console.WriteLine("Computer chose scissors.");
                     return "scissors";
                 case 3:
+                    Console.WriteLine("Computer chose lizard.");
                     return "lizard";
                 case 4:
+                    Console.WriteLine("Computer chose Spock.");
                     return "spock";
             }
 
