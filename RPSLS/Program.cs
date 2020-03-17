@@ -12,6 +12,7 @@ namespace RPSLS
         {
 
             Match Round1 = new Match();
+            Round1.Begin();
         }
     }
 }
