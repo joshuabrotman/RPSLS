@@ -29,7 +29,7 @@ namespace RPSLS
             int userInput = 0;
             while (userInput != 1 && userInput != 2 && userInput != 3)
                 { 
-                    Console.WriteLine("Enter 1 for Human VS Human - 2: Human VS computer - 3: Computer VS Computer:");
+                    Console.WriteLine("Enter 1 for Human VS Human - 2: Human VS Computer - 3: Computer VS Computer:");
                     try
                     {
                         userInput = Convert.ToInt32(Console.ReadLine());
