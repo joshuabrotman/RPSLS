@@ -9,10 +9,10 @@ namespace RPSLS
     class Match
     {
         public string winner;
-        public Player1 p1 = new Player1();
-        public Player2 p2 = new Player2();
+        public int round =1;
         public List<string> gesture = new List<string>();
-        
+        public Player p1;
+        public Player p2;
 
         public void Begin() 
         {
@@ -22,35 +22,47 @@ namespace RPSLS
             gesture.Add("lizard");
             gesture.Add("spock");
 
-            int round;
+            
             string winner;
 
             
             int userInput = 0;
-            Console.WriteLine("Enter 1 for Human VS Human - 2: Human VS computer - 3: Computer VS Computer:");
-            userInput = Convert.ToInt32(Console.ReadLine());
-
+            while (userInput != 1 && userInput != 2 && userInput != 3)
+                { 
+                    Console.WriteLine("Enter 1 for Human VS Human - 2: Human VS computer - 3: Computer VS Computer:");
+                    try
+                    {
+                        userInput = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        userInput = 0;
+                    }
+                    if (userInput != 1 && userInput != 2 && userInput != 3) { Console.WriteLine("Invalid Option!"); }
+            }
+            
 
             //switch to make player1.isHuman and player2.is Human accordingly
             //instantiate players
             switch (userInput)
             {
                 case 1:
-                    p1.isHuman = true;
-                    p2.isHuman = true;
+                    p1 = new Human();
+                    p2 = new Human();
                     break;
                 case 2:
-                    p1.isHuman = true;
-                    p2.isHuman = false;
+                    p1 = new Human();
+                    p2 = new Robot();
                     break;       
                 case 3:
-                    p1.isHuman = false;
-                    p2.isHuman = false;
+                    p1 = new Robot();
+                    p2 = new Robot();
                     break;
                 default:
                     Console.WriteLine("invalid");
                 break;
             }
+
 
 
 
@@ -62,24 +74,9 @@ namespace RPSLS
             {
 
 
-                if (p1.isHuman)
-                {
-                    p1.currentGesture = p1.PlayHand();
-                }
-                else
-                {
-                    p1.currentGesture = p1.PlayRandomHand();
-                }
-
-                if (p2.isHuman)
-                {
-                    p2.currentGesture = p2.PlayHand();
-                }
-                else
-                {
-                    p2.currentGesture = p2.PlayRandomHand();
-                }
-
+                p1.currentGesture = p1.ChooseGesture();
+                p2.currentGesture = p2.ChooseGesture();
+                
 
 
 
@@ -122,21 +119,26 @@ namespace RPSLS
                 }
 
                 //display winner
-                if(p1.score < p2.score)
+                if(p1.score < p2.score && round == 3)
                 {
                     winner = "Player2 wins the Game!";
+                    Console.WriteLine(winner);
                 }
-                else if (p1.score > p2.score)
+                else if (p1.score > p2.score && round == 3)
                 {
-                    winner = "player1 wins the Game!";
+                    winner = "Player1 wins the Game!";
+                    Console.WriteLine(winner);
                 }
-                else
+                else if (p1.score == p2.score && round == 3)
                 {
-                    winner = "error";
+                    winner = "Tie!";
+                    Console.WriteLine(winner);
                 }
-                Console.WriteLine(winner);
+                
 
                 Console.ReadKey();
+                Console.WriteLine("Press enter to continue: ");
+                round++;
 
             }
 

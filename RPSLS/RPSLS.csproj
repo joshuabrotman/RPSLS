@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Robot.cs" />
+    <Compile Include="Human.cs" />
     <Compile Include="Player2.cs" />
     <Compile Include="Player1.cs" />
     <Compile Include="Match.cs" />
