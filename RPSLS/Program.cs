@@ -14,8 +14,6 @@ namespace RPSLS
             Match Round1 = new Match();
             Round1.Begin();
 
-
-            //change to p1.choosegesture instead of of choosing human/computer
         }
     }
 }

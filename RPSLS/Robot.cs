@@ -9,7 +9,7 @@ namespace RPSLS
     class Robot : Player
     {
 
-        public Robot()
+        public Robot(string playerName) : base(playerName)
         {
 
         }

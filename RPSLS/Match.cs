@@ -39,7 +39,7 @@ namespace RPSLS
                         userInput = 0;
                     }
                     if (userInput != 1 && userInput != 2 && userInput != 3) { Console.WriteLine("Invalid Option!"); }
-            }
+                 }
             
 
             //switch to make player1.isHuman and player2.is Human accordingly
@@ -47,16 +47,16 @@ namespace RPSLS
             switch (userInput)
             {
                 case 1:
-                    p1 = new Human();
-                    p2 = new Human();
+                    p1 = new Human("Player 1");
+                    p2 = new Human("Player 2");
                     break;
                 case 2:
-                    p1 = new Human();
-                    p2 = new Robot();
+                    p1 = new Human("Player 1");
+                    p2 = new Robot("Player 2");
                     break;       
                 case 3:
-                    p1 = new Robot();
-                    p2 = new Robot();
+                    p1 = new Robot("Player 1");
+                    p2 = new Robot("Player 2");
                     break;
                 default:
                     Console.WriteLine("invalid");
@@ -70,7 +70,7 @@ namespace RPSLS
             //if human, prompt for input
             //if not, generate random
 
-            while (p1.score != 2 && p2.score != 2)
+            while (p1.score != 3 && p2.score != 3)
             {
 
 
@@ -134,10 +134,10 @@ namespace RPSLS
                     winner = "Tie!";
                     Console.WriteLine(winner);
                 }
-                
 
-                Console.ReadKey();
                 Console.WriteLine("Press enter to continue: ");
+                Console.ReadKey();
+                
                 round++;
 
             }
