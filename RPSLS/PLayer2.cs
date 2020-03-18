@@ -8,6 +8,14 @@ namespace RPSLS
 {
     class Player2 : Player
     {
-        
+
+        public void chooseGesture()
+        {
+
+        }
+
+
     }
+
+
 }
